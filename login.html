@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+
+<div class="login-container">
+    <div class="mode-toggle">
+        <button onclick="toggleMode()" id="modeIcon">🌙</button>
+    </div>
+    <h2>Login</h2>
+    <form action="portfolio.html">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" placeholder="Masukkan username" required />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Masukkan password" required />
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="register-link">
+        Belum punya akun? <a href="portfolio.html">Daftar</a>
+    </div>
+</div>
+
+<script>
+    const body = document.body;
+    const icon = document.getElementById("modeIcon");
+
+    function setMode(mode) {
+        body.className = mode;
+        icon.textContent = mode === "dark" ? "☀️" : "🌙";
+        localStorage.setItem("theme", mode);
+    }
+
+    function toggleMode() {
+        setMode(body.classList.contains("dark") ? "light" : "dark");
+    }
+
+    setMode(localStorage.getItem("theme") || "light");
+</script>
+</body>
+</html>

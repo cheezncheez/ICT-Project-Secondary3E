@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body>
+
+<div class="container">
+  <div class="mode-toggle">
+    <button id="modeBtn">🌙</button>
+  </div>
+
+  <header>
+    <img src="https://i.pravatar.cc/200" alt="Foto Profil" class="profile-photo" />
+    <h1>Nama Kamu</h1>
+  </header>
+
+  <section class="biodata">
+    <h2>Biodata</h2>
+    <p>Nama: random guy</p>
+    <p>Umur: 67 tahun</p>
+    <p>Email: emailkamu@example.com</p>
+    <p>Alamat: Jakarta, Indonesia</p>
+  </section>
+
+  <section class="education">
+    <h2>Riwayat Sekolah</h2>
+    <ul>
+      <li>SMP Sekolah Kita (2023-2026)</li>
+      <li>SD Sekolah Saya (2016-2023)</li>
+    </ul>
+  </section>
+
+  <section class="skills">
+    <h2>Skill</h2>
+    <ul>
+      <li>Gaming</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+  const body = document.body;
+  const modeBtn = document.getElementById("modeBtn");
+
+  function setMode(mode) {
+    body.className = mode;
+    modeBtn.textContent = mode === "dark" ? "☀️" : "🌙";
+    localStorage.setItem("portfolioTheme", mode);
+  }
+
+  modeBtn.addEventListener("click", () => {
+    setMode(body.classList.contains("dark") ? "light" : "dark");
+  });
+
+  setMode(localStorage.getItem("portfolioTheme") || "light");
+</script>
+
+</body>
+</html>
